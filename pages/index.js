@@ -39,26 +39,41 @@ export default function Home() {
         </div>
         {/*  search functionality ends */}
 
-        <div className=" mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className=" ml-11 grid grid-cols-1 gap-y-10 gap-x-6  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8">
-            {filterdArray.slice(page * 20 - 20, page * 20).map((elem) => (
-              <span onClick={() => handleClick(elem)}>
-                <Gallery
-                  imageUrl={elem.imageUrl}
-                  description={elem.description}
-                  id={elem.id}
+        {filterdArray.length === 0 ? (
+          <h3 className="flex justify-center m-60 text-gray-600 ">
+            Image Not Found
+          </h3>
+        ) : (
+          <>
+            {" "}
+            <div className=" mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+              <div className=" ml-11 grid grid-cols-1 gap-y-10 gap-x-6  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8">
+                {filterdArray.slice(page * 20 - 20, page * 20).map((elem) => (
+                  <span key={elem.id} onClick={() => handleClick(elem)}>
+                    <Gallery
+                      imageUrl={elem.imageUrl}
+                      description={elem.description}
+                      id={elem.id}
+                    />
+                  </span>
+                ))}
+              </div>
+            </div>
+            <Pagination
+              page={page}
+              setPage={setPage}
+              totalImages={filterdArray}
+            />
+            <div>
+              {clickedImg && (
+                <LightBox
+                  clickedImg={clickedImg}
+                  setClickedImg={setClickedImg}
                 />
-              </span>
-            ))}
-          </div>
-        </div>
-        <Pagination page={page} setPage={setPage} totalImages={filterdArray} />
-
-        <div>
-          {clickedImg && (
-            <LightBox clickedImg={clickedImg} setClickedImg={setClickedImg} />
-          )}
-        </div>
+              )}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );

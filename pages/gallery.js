@@ -24,7 +24,6 @@ export default function Gallery({ id, description, imageUrl }) {
           )}
           onLoadingComplete={() => setLoading(false)}
         />
-        <h1>{id}</h1>
         <p className="p-2">{description}</p>
       </div>
     </a>
