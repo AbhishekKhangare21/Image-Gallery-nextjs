@@ -1,4 +1,4 @@
 
-## Getting Started
+## Image-Gallery
 
- hosted Link- https://image-gallery-nextjs-gwrjse2hy-abhishekkhangare21.vercel.app/
+ Hosted Link- https://image-gallery-nextjs-gwrjse2hy-abhishekkhangare21.vercel.app/
