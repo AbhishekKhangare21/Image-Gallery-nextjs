@@ -1,7 +1,7 @@
 
 ## Image-Gallery
 
-
+Simple image gallary with beutifull UI created using Next JS
 
 [Click Here to see Live Website](https://image-gallery-updated.vercel.app/)  
 
